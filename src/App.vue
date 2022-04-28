@@ -2,7 +2,7 @@
   <h1>Play a game and check your reflex </h1>
   <button @click="start">Play</button>
   <div v-if="isPlaying">
-    <Block />
+    <Block :delay="delay"/>
   </div>
 </template>
 

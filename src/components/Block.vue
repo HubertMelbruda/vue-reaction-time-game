@@ -1,23 +1,36 @@
 <template>
-  <div class="block" v-if="isShowed">
-      Click this block 
+  <div class="block" v-if="isShowed" @click="stopTime">
+      Click me !!! 
   </div>
 </template>
 
 <script>
 export default {
+  props: ['delay'],
   data() {
     return {
       isShowed: false,
+      timer: null,
+      reactionTime: 0,
     }
   },
   mounted() {
     setTimeout(() => {
       this.isShowed = true
-    }, 3000)
+      this.startTime()
+    }, this.delay)
   },
   methods: {
-    
+    startTime() {
+      this.timer = setInterval(() => {
+        this.reactionTime += 10
+        console.log(this.timer)
+      }, 10)
+    }, 
+    stopTime() {
+      clearInterval(this.timer)
+      console.log(this.reactionTime)
+    }
   }
 }
 </script>
