@@ -2,7 +2,7 @@
   <h1>Play a game and check your reflex </h1>
   <button @click="start">Play</button>
   <div v-if="isPlaying">
-    <Block :delay="delay"/>
+    <Block :delay="delay" @end="endGame"/>
   </div>
 </template>
 
@@ -15,6 +15,7 @@ export default {
     return {
       isPlaying: false,
       delay: null, 
+      score: null,
     }
   }, 
   components: {
@@ -25,6 +26,10 @@ export default {
       this.delay = 2000 + Math.random() * 5000
       this.isPlaying = true
     },
+    endGame(reactionTime) {
+      this.score = reactionTime
+      this.isPlaying = false
+    }
   }
 }
 </script>

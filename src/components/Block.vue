@@ -24,13 +24,13 @@ export default {
     startTime() {
       this.timer = setInterval(() => {
         this.reactionTime += 10
-        console.log(this.timer)
       }, 10)
     }, 
     stopTime() {
       clearInterval(this.timer)
+      this.$emit('end', this.reactionTime)
       console.log(this.reactionTime)
-    }
+    },
   }
 }
 </script>
