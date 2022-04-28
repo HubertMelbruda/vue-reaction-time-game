@@ -1,12 +1,24 @@
 <template>
-  <div class="block">
+  <div class="block" v-if="isShowed">
       Click this block 
   </div>
 </template>
 
 <script>
 export default {
-
+  data() {
+    return {
+      isShowed: false,
+    }
+  },
+  mounted() {
+    setTimeout(() => {
+      this.isShowed = true
+    }, 3000)
+  },
+  methods: {
+    
+  }
 }
 </script>
 
