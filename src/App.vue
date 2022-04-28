@@ -50,7 +50,7 @@ export default {
 
 button {
   font-size: 1.4em;
-  background: #0fb570;
+  background: #15a267;
   color: #ffffff;
   border: 1px black solid;
   border-radius: 5px;
