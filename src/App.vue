@@ -1,13 +1,13 @@
 <template>
   <h1>Play a game and check your reflex </h1>
-  <button @click="start">Play</button>
-  <div v-if="isPlaying">
-    <Block :delay="delay" @end="endGame"/>
-  </div>
+  <button @click="start" :disabled="isPlaying">Play</button>
+  <Block v-if="isPlaying" :delay="delay" @end="endGame"/>
+  <Results v-if="showResult" :score="score"/>
 </template>
 
 <script>
 import Block from './components/Block.vue'
+import Results from './components/Results.vue'
 
 export default {
   name: 'App',
@@ -16,19 +16,23 @@ export default {
       isPlaying: false,
       delay: null, 
       score: null,
+      showResult: false,
     }
   }, 
   components: {
     Block,
+    Results,
   }, 
   methods: {
     start() {
       this.delay = 2000 + Math.random() * 5000
       this.isPlaying = true
+      this.showResult = false
     },
     endGame(reactionTime) {
       this.score = reactionTime
       this.isPlaying = false
+      this.showResult = true
     }
   }
 }
@@ -53,5 +57,10 @@ button {
   padding: 8px 15px;
   cursor: pointer;
 }
+
+ button[disabled] {
+   opacity: 0.2;
+   cursor: not-allowed;
+ }
 
 </style>
