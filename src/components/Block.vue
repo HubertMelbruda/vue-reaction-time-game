@@ -1,5 +1,5 @@
 <template>
-  <div class="block" v-if="isShowed" @click="stopTime">
+  <div class="block" v-if="isShown" @click="stopTime">
       Click me !!! 
   </div>
 </template>
@@ -9,14 +9,14 @@ export default {
   props: ['delay'],
   data() {
     return {
-      isShowed: false,
+      isShown: false,
       timer: null,
       reactionTime: 0,
     }
   },
   mounted() {
     setTimeout(() => {
-      this.isShowed = true
+      this.isShown = true
       this.startTime()
     }, this.delay)
   },

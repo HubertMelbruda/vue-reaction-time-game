@@ -7,7 +7,7 @@
       <Block v-if="isPlaying" :delay="delay" @end="endGame" />
       <Results v-if="showResult" :score="score" />
     </div>
-    <div class="scoreTable">
+    <div v-if="scores.length" class="scores">
       <ScoresTable :scores="scores"/>
     </div>
   </div>
@@ -26,7 +26,7 @@ export default {
       delay: null,
       score: null,
       showResult: false,
-      scores: [200,200,300,300,200],
+      scores: [],
     }
   },
   components: {
@@ -57,8 +57,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #7c7c7c;
-  /* margin: 60px auto; */
-  /* max-width: 900px; */
   box-sizing: border-box;
 }
 
@@ -100,9 +98,8 @@ body {
   position: relative;
 }
 
-.scoreTable{
+.scores{
   margin: 20px;
-  
 }
 .game-space {
   position: absolute;

@@ -1,8 +1,8 @@
 <template>
   <div class="score-table">
     <h4>Scores:</h4>
-    <p v-for="(score, index) in scores" :key="index">
-      {{ index }}. {{ score }} ms
+    <p v-for="(score, index) in scores" :key="index" :class="{ bestScore: getTheBestScore(score)}">
+      {{ index + 1 }}. {{ score }} ms
     </p>
   </div>
 </template>
@@ -13,6 +13,11 @@ export default {
   data() {
     return {
       scoresToDisplay: [],
+    }
+  },
+  methods: {
+    getTheBestScore(score) {
+      return score === Math.min(...this.scores) ? 'bestScore' : ''
     }
   },
 }
@@ -28,5 +33,9 @@ export default {
   min-height: 400px;
   border: 1px solid black;
   border-radius: 10px;
+}
+
+.bestScore {
+  color: #f40d0d;
 }
 </style>
