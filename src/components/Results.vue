@@ -15,7 +15,7 @@ export default {
     if (this.score < 300) {
       this.rank = "Fast as lightning!"
     } else if (this.score < 450) {
-      this.rank ="You did great!"
+      this.rank ="You did great, but you can be faster."
     } else {
       this.rank = "Drink more coffee and try one more time!"
     }
