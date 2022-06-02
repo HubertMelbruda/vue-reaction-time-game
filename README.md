@@ -1,4 +1,4 @@
-# netninja-reaction-timer
+# reaction-timer
 
 ## Project setup
 ```
